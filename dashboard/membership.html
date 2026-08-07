@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Membership Management</h1>
+
+    <div class="form-container">
+        <input type="hidden" id="membershipId">
+
+        <input type="number" id="studentId" placeholder="Student ID">
+
+        <input type="text" id="membershipType" placeholder="Membership Type">
+
+        <input type="date" id="startDate">
+
+        <input type="date" id="expiryDate">
+
+        <button onclick="saveMembership()">Save Membership</button>
+
+        <button onclick="loadMemberships()">Refresh</button>
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student</th>
+                <th>Type</th>
+                <th>Start Date</th>
+                <th>Expiry Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="membershipsBody"></tbody>
+    </table>
+
+    <script src="membership.js"></script>
+
+</body>
+
+</html>

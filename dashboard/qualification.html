@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Firearms Qualifications</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>Real3st BI</h2>
+
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="student.html">👨‍🎓 Students</a>
+        <a href="courses.html">📚 Courses</a>
+        <a href="membership.html">💳 Memberships</a>
+        <a href="payments.html">💰 Payments</a>
+        <a href="certificate.html">🏆 Certificates</a>
+        <a href="qualification.html">🎯 Qualifications</a>
+        <a href="reports.html">📊 Reports</a>
+        <a href="user.html">👥 User Management</a>
+
+        <button type="button" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+    <div class="main-content">
+
+        <div class="header">
+            <h1>Firearms Qualifications</h1>
+        </div>
+
+        <div class="qualification-form">
+
+            <input type="hidden" id="qualificationId">
+
+            <input type="text" id="student_search" placeholder="Search students..." />
+            <select id="student_id" required>
+                <option value="">Select Student</option>
+            </select>
+
+            <input type="text" id="qualificationName" placeholder="Qualification Name">
+
+            <select id="qualificationLevel">
+                <option value="">Select Level</option>
+                <option value="Basic">Basic</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Expert">Expert</option>
+                <option value="Instructor">Instructor</option>
+            </select>
+
+            <label>
+                Issue Date
+                <input type="date" id="issueDate">
+            </label>
+
+            <select id="instructor">
+                <option value="">Select Instructor</option>
+            </select>
+
+            <div class="qualification-buttons">
+
+                <button type="button" onclick="saveQualification()">
+                    Save Qualification
+                </button>
+
+                <button type="button" onclick="clearQualificationForm()">
+                    Clear
+                </button>
+
+                <button type="button" onclick="loadQualifications()">
+                    Refresh
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Student ID</th>
+                        <th>Qualification</th>
+                        <th>Level</th>
+                        <th>Issue Date</th>
+                        <th>Instructor</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="qualificationsBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="qualification.js"></script>
+
+</body>
+
+</html>

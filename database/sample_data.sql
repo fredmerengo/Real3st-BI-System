@@ -1,0 +1,9 @@
+INSERT INTO Students
+INSERT INTO Courses
+INSERT INTO Instructors
+INSERT INTO Memberships
+INSERT INTO Enrollments
+INSERT INTO Payments
+INSERT INTO Firearms_Qualifications
+INSERT INTO Drone_Certifications
+INSERT INTO Certificates

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Management</h1>
+
+    <div class="form-container">
+        <input type="text" id="first_name" placeholder="First Name">
+        <input type="text" id="last_name" placeholder="Last Name">
+        <input type="text" id="gender" placeholder="Gender">
+        <input type="date" id="date_of_birth">
+        <input type="text" id="phone" placeholder="Phone">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="address" placeholder="Address">
+
+        <button onclick="addStudent()">Add Student</button>
+        <button onclick="updateStudent()">Update Student</button>
+        <button onclick="loadStudents()">Refresh</button>
+    </div>
+
+    <table border="1" width="100%" id="studentsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="studentsBody">
+            <!-- Student rows will be populated here -->
+        </tbody>
+    </table>
+
+    <script src="student.js"></script>
+</body>
+
+</html>

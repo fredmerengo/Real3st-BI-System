@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Real3st Shooters Academy Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>Real3st BI</h2>
+
+        <a href="student.html" id="studentsLink">🎓 Students</a>
+        <a href="courses.html" id="coursesLink">📚 Courses</a>
+        <a href="membership.html" id="membershipsLink">💳 Memberships</a>
+        <a href="payments.html" id="paymentsLink">💰 Payments</a>
+        <a href="certificate.html" id="certificatesLink">🏆 Certificates</a>
+        <a href="qualification.html" id="qualificationsLink">🎯 Qualifications</a>
+
+        <a href="reports.html">📊 Reports</a>
+
+        <a href="user.html" id="userManagementLink">
+            👥 User Management
+        </a>
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+
+    <main class="main-content">
+
+        <!-- ================= HEADER ================= -->
+
+        <section class="dashboard-header">
+
+            <h1>
+                Real3st Shooters Academy Dashboard
+            </h1>
+
+            <p>
+                Business Intelligence System
+            </p>
+
+            <div class="dashboard-user">
+
+                <strong id="loggedInUser">
+                    Administrator
+                </strong>
+
+                <span id="currentDateTime">
+                    --
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= KPI CARDS ================= -->
+
+        <section class="stats-container">
+
+            <div class="card">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Courses</h3>
+                <p id="totalCourses">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Memberships</h3>
+                <p id="totalMemberships">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Payments</h3>
+                <p id="totalPayments">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Revenue</h3>
+                <p id="totalRevenue">$0.00</p>
+            </div>
+
+            <div class="card">
+                <h3>Most Popular Course</h3>
+
+                <p id="popularCourse">
+                    Loading...
+                </p>
+
+                <small id="popularCourseCount">
+                    0 students
+                </small>
+            </div>
+            <div class="card">
+                <h3>Renewals Due</h3>
+                <p id="renewalsDue">0</p>
+                <small>Within 30 days</small>
+            </div>
+            <div class="chart-card">
+                <h2>Revenue by Division</h2>
+
+                <div class="chart-wrapper">
+                    <canvas id="divisionRevenueChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Students Trained</h3>
+                <p id="studentsTrained">0</p>
+                <small>Completed training</small>
+            </div>
+
+        </section>
+
+
+        <!-- ================= BI CHARTS ================= -->
+
+        <section class="charts-container">
+
+            <!-- MONTHLY REVENUE -->
+
+            <div class="chart-card">
+
+                <h2>
+                    Monthly Revenue
+                </h2>
+
+                <div class="chart-wrapper">
+                    <canvas id="monthlyRevenueChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- REVENUE BY COURSE -->
+
+            <div class="chart-card">
+
+                <h2>
+                    Revenue by Course
+                </h2>
+
+                <div class="chart-wrapper">
+                    <canvas id="revenueByCourseChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- INSTRUCTOR WORKLOAD -->
+
+            <div class="chart-card">
+
+                <h2>
+                    Instructor Workload
+                </h2>
+
+                <div class="chart-wrapper">
+                    <canvas id="instructorWorkloadChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- ACADEMY STATISTICS -->
+
+            <div class="chart-card">
+
+                <h2>
+                    Academy Statistics
+                </h2>
+
+                <div class="chart-wrapper">
+                    <canvas id="academyChart"></canvas>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

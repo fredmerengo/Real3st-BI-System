@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificate Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>Real3st BI</h2>
+
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="student.html">👨‍🎓 Students</a>
+        <a href="courses.html">📚 Courses</a>
+        <a href="membership.html">💳 Memberships</a>
+        <a href="payments.html">💰 Payments</a>
+        <a href="certificate.html">🏆 Certificates</a>
+        <a href="reports.html">📊 Reports</a>
+        <a href="user.html">👥 User Management</a>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+
+    <div class="main-content">
+
+        <div class="header">
+            <h1>Certificate Management</h1>
+        </div>
+
+        <div class="form-container">
+
+            <input type="hidden" id="certificateId">
+
+            <input type="number" id="studentId" placeholder="Student ID">
+
+            <input type="number" id="courseId" placeholder="Course ID">
+
+            <input type="text" id="certificateNumber" placeholder="Certificate Number">
+
+            <label>
+                Issue Date
+                <input type="date" id="issueDate">
+            </label>
+
+            <label>
+                Expiry Date
+                <input type="date" id="expiryDate">
+            </label>
+
+            <button type="button" onclick="saveCertificate()">
+                Save Certificate
+            </button>
+
+            <button type="button" onclick="clearCertificateForm()">
+                Clear
+            </button>
+
+            <button type="button" onclick="loadCertificates()">
+                Refresh
+            </button>
+
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Student ID</th>
+                    <th>Course ID</th>
+                    <th>Certificate Number</th>
+                    <th>Issue Date</th>
+                    <th>Expiry Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="certificatesBody"></tbody>
+
+        </table>
+
+    </div>
+
+    <script src="certificate.js"></script>
+
+</body>
+
+</html>

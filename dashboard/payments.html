@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Management</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #222;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 230px;
+            padding: 24px 16px;
+            overflow-y: auto;
+            background: #182233;
+            color: white;
+        }
+
+        .sidebar h2 {
+            margin: 0 0 25px;
+            text-align: center;
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 7px;
+            padding: 12px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #2d3e56;
+        }
+
+        .logout-btn {
+            width: 100%;
+            margin-top: 18px;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #dc4c5b;
+            color: white;
+            cursor: pointer;
+        }
+
+        .main-content {
+            width: calc(100% - 230px);
+            margin-left: 230px;
+            padding: 28px;
+        }
+
+        .page-title {
+            margin: 0 0 20px;
+            padding: 18px;
+            border-radius: 8px;
+            background: #202938;
+            color: white;
+            text-align: center;
+        }
+
+        .status-message {
+            display: none;
+            margin-bottom: 15px;
+            padding: 13px;
+            border-radius: 6px;
+        }
+
+        .status-success {
+            display: block;
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .status-error {
+            display: block;
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(190px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .summary-card h3 {
+            margin: 0 0 10px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .summary-card p {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .form-card,
+        .table-card {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccd1d9;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        button {
+            padding: 11px 16px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .save-btn {
+            background: #1877c9;
+        }
+
+        .clear-btn {
+            background: #6c757d;
+        }
+
+        .refresh-btn {
+            background: #0d6efd;
+        }
+
+        .search-input {
+            max-width: 360px;
+            margin-bottom: 15px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 1000px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 11px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #253247;
+            color: white;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f6f7f9;
+        }
+
+        .edit-btn {
+            padding: 7px 10px;
+            background: #168bc2;
+        }
+
+        .delete-btn {
+            padding: 7px 10px;
+            background: #dc3545;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        @media (max-width: 800px) {
+            .layout {
+                display: block;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+            }
+
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <h2>Real3st BI</h2>
+
+            <a href="dashboard.html">🏠 Dashboard</a>
+            <a href="student.html">🎓 Students</a>
+            <a href="courses.html">📚 Courses</a>
+            <a href="membership.html">💳 Memberships</a>
+            <a href="payments.html" class="active">💰 Payments</a>
+            <a href="certificate.html">🏆 Certificates</a>
+            <a href="qualification.html">🎯 Qualifications</a>
+            <a href="reports.html">📊 Reports</a>
+            <a href="users.html">👥 User Management</a>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </aside>
+
+        <main class="main-content">
+
+            <h1 class="page-title">Payment Management</h1>
+
+            <div id="statusMessage" class="status-message"></div>
+
+            <section class="summary-grid">
+
+                <div class="summary-card">
+                    <h3>Total Payments</h3>
+                    <p id="paymentCount">0</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Total Revenue</h3>
+                    <p id="totalRevenue">$0.00</p>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Completed Payments</h3>
+                    <p id="completedPayments">0</p>
+                </div>
+
+            </section>
+
+            <section class="form-card">
+
+                <h2>Record Payment</h2>
+
+                <input type="hidden" id="paymentId">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label for="studentId">Student</label>
+
+                        <select id="studentId" required>
+                            <option value="">Select Student</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="courseId">Course</label>
+
+                        <select id="courseId">
+                            <option value="">Select Course</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="amount">Amount in USD</label>
+
+                        <input type="number" id="amount" min="0" step="0.01" placeholder="Example: 300" required>
+                    </div>
+
+                    <div>
+                        <label for="paymentMethod">
+                            Payment Method
+                        </label>
+
+                        <select id="paymentMethod" required>
+                            <option value="">
+                                Select Payment Method
+                            </option>
+
+                            <option value="Cash">Cash</option>
+                            <option value="Card">Card</option>
+                            <option value="M-PESA">M-PESA</option>
+                            <option value="Bank Transfer">
+                                Bank Transfer
+                            </option>
+                            <option value="PayPal">PayPal</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="paymentDate">
+                            Payment Date
+                        </label>
+
+                        <input type="date" id="paymentDate" required>
+                    </div>
+
+                    <div>
+                        <label for="paymentStatus">Status</label>
+
+                        <select id="paymentStatus" required>
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Cancelled">
+                                Cancelled
+                            </option>
+
+                            <option value="Refunded">
+                                Refunded
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="button-row">
+
+                    <button class="save-btn" onclick="savePayment()">
+                        Save Payment
+                    </button>
+
+                    <button class="clear-btn" onclick="clearPaymentForm()">
+                        Clear
+                    </button>
+
+                    <button class="refresh-btn" onclick="loadPayments()">
+                        Refresh
+                    </button>
+
+                </div>
+
+            </section>
+
+            <section class="table-card">
+
+                <h2>Payment Records</h2>
+
+                <input type="text" id="paymentSearch" class="search-input" placeholder="Search payments..."
+                    oninput="filterPayments()">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student</th>
+                                <th>Course</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="paymentsTableBody">
+
+                            <tr>
+                                <td colspan="8">
+                                    No payment records found.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="payments.js"></script>
+
+</body>
+
+</html>

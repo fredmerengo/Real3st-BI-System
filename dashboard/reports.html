@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports Center</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+
+        <h2>Real3st BI</h2>
+
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="student.html">🎓 Students</a>
+        <a href="courses.html">📚 Courses</a>
+        <a href="membership.html">💳 Memberships</a>
+        <a href="payments.html">💰 Payments</a>
+        <a href="certificate.html">🏆 Certificates</a>
+        <a href="qualification.html">🎯 Qualifications</a>
+        <a href="reports.html">📊 Reports</a>
+        <a href="user-management.html">👥 User Management</a>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <div class="header">
+            <h1>Reports Center</h1>
+        </div>
+
+
+        <!-- ================= CONTROLS ================= -->
+
+        <div class="form-container">
+
+            <select id="reportType">
+
+                <option value="students">
+                    Student Report
+                </option>
+
+                <option value="courses">
+                    Course Report
+                </option>
+
+                <option value="memberships">
+                    Membership Report
+                </option>
+
+                <option value="payments">
+                    Payment Report
+                </option>
+
+                <option value="certificates">
+                    Certificate Report
+                </option>
+
+                <option value="qualifications">
+                    Qualification Report
+                </option>
+
+            </select>
+
+
+            <input type="text" id="reportSearch" placeholder="Search current report...">
+
+
+            <button onclick="generateReport()">
+                Generate Report
+            </button>
+
+
+            <button onclick="exportExcel()" style="background:#15803d;">
+                Export Excel
+            </button>
+
+
+            <button onclick="printReport()" style="background:#374151;">
+                Print / PDF
+            </button>
+
+
+            <button onclick="refreshReport()">
+                Refresh
+            </button>
+
+        </div>
+
+
+        <!-- ================= STATUS MESSAGE ================= -->
+
+        <div id="statusMessage" class="status-message"></div>
+
+
+        <!-- ================= REPORT SUMMARY ================= -->
+
+        <section class="stats-container">
+
+            <div class="card">
+
+                <h3>
+                    Current Records
+                </h3>
+
+                <p id="recordCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Total Revenue
+                </h3>
+
+                <p id="totalRevenue">
+                    $0.00
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Report Generated
+                </h3>
+
+                <p id="generatedDate" style="font-size:22px;">
+                    —
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORT TABLE ================= -->
+
+        <section>
+
+            <h2 id="reportTitle">
+                Student Report
+            </h2>
+
+
+            <div class="table-container">
+
+                <table id="reportTable">
+
+                    <thead id="reportTableHead">
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="reportTableBody">
+
+                        <tr>
+
+                            <td colspan="10">
+                                Loading...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Excel Library -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <!-- Reports JavaScript -->
+    <script src="./report.js"></script>
+
+</body>
+
+</html>

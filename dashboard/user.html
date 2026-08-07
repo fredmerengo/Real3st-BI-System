@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="profile">
+
+            <div class="avatar">
+                👤
+            </div>
+
+            <h3 id="profileName">
+                Fred Merengo
+            </h3>
+
+            <p id="profileRole">
+                Administrator
+            </p>
+
+        </div>
+
+        <a href="dashboard.html">
+            🏠 Dashboard
+        </a>
+
+        <a href="student.html">
+            👨‍🎓 Students
+        </a>
+
+        <a href="courses.html">
+            📚 Courses
+        </a>
+
+        <a href="membership.html">
+            💳 Memberships
+        </a>
+
+        <a href="payments.html">
+            💰 Payments
+        </a>
+
+        <a href="certificate.html">
+            🏆 Certificates
+        </a>
+
+        <a href="qualification.html">
+            🎯 Qualifications
+        </a>
+
+        <a href="reports.html">
+            📊 Reports
+        </a>
+
+        <a href="user.html">
+            👥 User Management
+        </a>
+
+        <button class="logout-button" onclick="logout()">
+            🚪 Logout
+        </button>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <div class="header">
+
+            <h1>
+                User Management
+            </h1>
+
+            <p>
+                Manage CEO and Administrator accounts
+            </p>
+
+        </div>
+
+
+        <!-- USER FORM -->
+
+        <div class="form-container">
+
+            <input type="hidden" id="userId">
+
+
+            <input type="text" id="username" placeholder="Username">
+
+
+            <input type="password" id="password" placeholder="New Password">
+
+
+            <input type="text" id="fullName" placeholder="Full Name">
+
+
+            <select id="role">
+
+                <option value="">
+                    Select Role
+                </option>
+
+                <option value="CEO">
+                    CEO
+                </option>
+
+                <option value="Administrator">
+                    Administrator
+                </option>
+
+            </select>
+
+
+            <button onclick="saveUser()">
+                Save Changes
+            </button>
+
+
+            <button type="button" onclick="clearUserForm()">
+                Clear
+            </button>
+
+
+            <button type="button" onclick="loadUsers()">
+                Refresh
+            </button>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div id="userMessage" class="status-message"></div>
+
+
+        <!-- USERS TABLE -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            User ID
+                        </th>
+
+                        <th>
+                            Username
+                        </th>
+
+                        <th>
+                            Full Name
+                        </th>
+
+                        <th>
+                            Role
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="usersBody">
+
+                    <tr>
+
+                        <td colspan="5">
+                            Loading users...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <script src="user.js"></script>
+
+</body>
+
+</html>

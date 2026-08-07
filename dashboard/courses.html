@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Course Management</h1>
+
+    <div class="form-container">
+
+        <input type="hidden" id="courseId">
+
+        <input type="text" id="courseName" placeholder="Course Name">
+
+        <input type="text" id="category" placeholder="Category">
+
+        <input type="number" id="duration" placeholder="Duration (Hours)">
+
+        <input type="number" id="price" placeholder="Price">
+
+        <button onclick="saveCourse()">Save Course</button>
+
+        <button onclick="loadCourses()">Refresh</button>
+
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Category</th>
+                <th>Duration (Hours)</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="coursesBody">
+
+        </tbody>
+
+    </table>
+
+    <script src="courses.js"></script>
+
+</body>
+
+</html>

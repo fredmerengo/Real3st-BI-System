@@ -1,0 +1,1 @@
+﻿import urllib.request, json; url='http://127.0.0.1:5001/payments'; data=urllib.request.urlopen(url, timeout=5).read().decode('utf-8'); print(data[:400]); obj=json.loads(data); print(type(obj), len(obj) if hasattr(obj,'__len__') else 'n/a'); print(obj[0] if isinstance(obj, list) and obj else 'empty')
