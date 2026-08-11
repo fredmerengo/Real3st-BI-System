@@ -1,5 +1,5 @@
-from db_connection import engine
-from models import Student
+from backend.db_connection import engine
+from backend.models import Student
 from sqlalchemy.orm import Session
 
 with Session(engine) as session:

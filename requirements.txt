@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+openpyxl
+psycopg2-binary
+python-dotenv
+reportlab
+SQLAlchemy

@@ -133,7 +133,7 @@ Restricted pages also perform authorization checks to prevent unauthorized users
 
 ## Project Structure
 
-Real3st-BI-System/
+Real3st-BI-System-2.0/
 
     backend/
         app.py
@@ -163,9 +163,30 @@ Real3st-BI-System/
         login.js
         style.css
 
-    automation/
+    database/
+        schema.sql
+        sample_data.sql
+        queries.sql
+
+    powerbi/
+        Real3st_BI_Dashboard.pbix
+
+    reports/
+
+    scripts/
+        insert_course.py
+        payment_schema_check.py
+        payments_query_check.py
+        payments_response_check.py
+
+    tests/
+        test_models.py
+        test_firearms_qualifications.py
+
+    docs/
 
     README.md
+    requirements.txt
 
 ## Running the Project
 

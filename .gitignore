@@ -23,6 +23,8 @@ venv/
 # Generated reports
 *.xlsx
 *.pdf
+!reports/students_report.xlsx
+!reports/students_report.pdf
 
 # OS files
 .DS_Store
