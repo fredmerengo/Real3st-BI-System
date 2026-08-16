@@ -15,7 +15,8 @@ import ssl
 import threading
 from email.message import EmailMessage
 from datetime import date, timedelta
-load_dotenv()
+
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
@@ -1208,7 +1209,6 @@ if __name__ == "__main__":
     reminder_interval = int(os.environ.get("REMINDER_INTERVAL_HOURS", 24))
     reminder_days = int(os.environ.get("REMINDER_DAYS", 7))
     schedule_membership_reminders(reminder_interval, reminder_days)
-    app.run(debug=True)
 @app.route("/reports/students/pdf", methods=["GET"])
 def export_students_pdf():
     pdf_buffer = BytesIO()
@@ -1821,4 +1821,4 @@ def students_trained():
             "error": str(error)
         }), 500
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

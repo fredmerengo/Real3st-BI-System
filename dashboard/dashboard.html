@@ -8,6 +8,7 @@
     <title>Real3st Shooters Academy Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -18,18 +19,15 @@
 
         <h2>Real3st BI</h2>
 
-        <a href="student.html" id="studentsLink">🎓 Students</a>
-        <a href="courses.html" id="coursesLink">📚 Courses</a>
-        <a href="membership.html" id="membershipsLink">💳 Memberships</a>
-        <a href="payments.html" id="paymentsLink">💰 Payments</a>
-        <a href="certificate.html" id="certificatesLink">🏆 Certificates</a>
-        <a href="qualification.html" id="qualificationsLink">🎯 Qualifications</a>
-
-        <a href="reports.html">📊 Reports</a>
-
-        <a href="user.html" id="userManagementLink">
-            👥 User Management
-        </a>
+        <a href="../dashboard/dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+        <a href="../students/student.html" id="studentsLink"><i class="fa-solid fa-user-graduate"></i><span>Students</span></a>
+        <a href="../courses/courses.html" id="coursesLink"><i class="fa-solid fa-book-open"></i><span>Courses</span></a>
+        <a href="../memberships/membership.html" id="membershipsLink"><i class="fa-solid fa-id-card"></i><span>Memberships</span></a>
+        <a href="../payments/payments.html" id="paymentsLink"><i class="fa-solid fa-credit-card"></i><span>Payments</span></a>
+        <a href="../certificates/certificates.html" id="certificatesLink"><i class="fa-solid fa-award"></i><span>Certificates</span></a>
+        <a href="../qualifications/qualifications.html" id="qualificationsLink"><i class="fa-solid fa-certificate"></i><span>Qualifications</span></a>
+        <a href="../reports/reports.html"><i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
+        <a href="../users/user.html" id="userManagementLink"><i class="fa-solid fa-users-gear"></i><span>User Management</span></a>
         <button class="logout-btn" onclick="logout()">
             Logout
         </button>
