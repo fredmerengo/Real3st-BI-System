@@ -1,6 +1,8 @@
+const API_BASE_URL = "https://real3st-bi-system.onrender.com";
+
 async function loadCount(endpoint, elementId) {
     try {
-        const response = await fetch(`http://127.0.0.1:5001/${endpoint}`);
+        const response = await fetch(`${API_BASE_URL}/${endpoint}`);
         const data = await response.json();
         document.getElementById(elementId).textContent = data.length;
     } catch (error) {
@@ -16,12 +18,12 @@ loadCount("memberships", "memberships");
 loadCount("certificates", "certificates");
 loadCount("firearms_qualifications", "qualifications");
 Promise.all([
-    fetch("http://127.0.0.1:5001/students").then(r => r.json()),
-    fetch("http://127.0.0.1:5001/instructors").then(r => r.json()),
-    fetch("http://127.0.0.1:5001/courses").then(r => r.json()),
-    fetch("http://127.0.0.1:5001/memberships").then(r => r.json()),
-    fetch("http://127.0.0.1:5001/certificates").then(r => r.json()),
-    fetch("http://127.0.0.1:5001/firearms_qualifications").then(r => r.json())
+    fetch(`${API_BASE_URL}/students`).then(r => r.json()),
+    fetch(`${API_BASE_URL}/instructors`).then(r => r.json()),
+    fetch(`${API_BASE_URL}/courses`).then(r => r.json()),
+    fetch(`${API_BASE_URL}/memberships`).then(r => r.json()),
+    fetch(`${API_BASE_URL}/certificates`).then(r => r.json()),
+    fetch(`${API_BASE_URL}/firearms_qualifications`).then(r => r.json())
 ]).then(data => {
 
     const counts = data.map(item => item.length);

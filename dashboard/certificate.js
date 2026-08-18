@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:5001";
+const API = "https://real3st-bi-system.onrender.com";
 
 async function loadCertificates() {
     try {

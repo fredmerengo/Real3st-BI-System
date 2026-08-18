@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:5001";
+const API_BASE_URL = "https://real3st-bi-system.onrender.com";
 
 let academyChartInstance = null;
 let revenueByCourseChartInstance = null;
@@ -286,7 +286,7 @@ async function loadDivisionRevenueChart() {
 async function loadStudentsTrained() {
     try {
         const response = await fetch(
-            "http://127.0.0.1:5001/dashboard/students-trained"
+            `${API_BASE_URL}/dashboard/students-trained`
         );
 
         const data = await response.json();

@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:5001";
+const API = "https://real3st-bi-system.onrender.com";
 const API_URL = API; // legacy alias used by some dropdown loader functions
 
 let qualificationsData = [];

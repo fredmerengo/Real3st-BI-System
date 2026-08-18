@@ -1,5 +1,5 @@
 console.log("student.js loaded");
-const API = "http://127.0.0.1:5001";
+const API = "https://real3st-bi-system.onrender.com";
 
 async function loadStudents() {
     try {
@@ -62,7 +62,7 @@ async function addStudent() {
         address: document.getElementById("address").value
     };
 
-    const response = await fetch("http://127.0.0.1:5001/students", {
+    const response = await fetch(`${API}/students`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -106,7 +106,7 @@ async function updateStudent() {
         address: document.getElementById("address").value
     };
 
-    const response = await fetch(`http://127.0.0.1:5001/students/${selectedStudentId}`, {
+    const response = await fetch(`${API}/students/${selectedStudentId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
