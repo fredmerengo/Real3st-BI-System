@@ -18,7 +18,7 @@ function protectAdminPage() {
 
     if (!fullName || !role) {
 
-        window.location.href = "login.html";
+        window.location.href = "/login.html";
 
 
         return false;
@@ -33,7 +33,7 @@ function protectAdminPage() {
         );
 
         window.location.href =
-            "dashboard.html";
+            "/dashboard.html";
 
         return false;
     }
@@ -632,7 +632,7 @@ function logout() {
         "userRole"
     );
 
-    window.location.href = "login.html";
+    window.location.href = "/login.html";
 }
 
 

@@ -29,7 +29,7 @@ async function login() {
             localStorage.setItem("role", result.user.role);
             localStorage.setItem("username", result.user.username);
 
-            window.location.href = "dashboard.html";
+            window.location.href = "/dashboard.html";
 
         } else {
 

@@ -235,7 +235,7 @@ function logout() {
     localStorage.removeItem("full_name");
     localStorage.removeItem("role");
 
-    window.location.href = "login.html";
+    window.location.href = "/login.html";
 }
 
 document.addEventListener("DOMContentLoaded", function () {

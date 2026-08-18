@@ -861,7 +861,7 @@ function logout() {
 
 
     window.location.href =
-        "login.html";
+        "/login.html";
 }
 // Load students trained separately
 document.addEventListener("DOMContentLoaded", function () {

@@ -575,5 +575,5 @@ function logout() {
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("userRole");
 
-    window.location.href = "login.html";
+    window.location.href = "/login.html";
 }
