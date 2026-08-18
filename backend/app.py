@@ -17,7 +17,10 @@ from email.message import EmailMessage
 from datetime import date, timedelta
 
 load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
-app = Flask(__name__)
+DASHBOARD_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "dashboard")
+)
+app = Flask(__name__, static_folder=DASHBOARD_DIR, static_url_path="")
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -26,11 +29,7 @@ engine = create_engine(DATABASE_URL)
 
 @app.route("/")
 def home():
-    return jsonify({
-        "project": "Real3st Shooters Academy BI System",
-        "version": "1.0",
-        "status": "Running"
-    })
+    return app.send_static_file("login.html")
 
 
 @app.route("/students", methods=["GET"])
